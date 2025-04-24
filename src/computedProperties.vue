@@ -47,24 +47,7 @@ const fullName = computed(()=>{
 
     <p>Full name is : {{ fullName }}</p>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br /> <br />
-    <br />
-    <br />
-    <br />
-    <br /> <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    
 
 </template>
 

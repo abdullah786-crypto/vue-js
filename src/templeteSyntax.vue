@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import ReactivityFundamentals from './reactivityFundamentals.vue';
 import ComputedProperties from './computedProperties.vue';
+import ClassAndStylesBinding from './classAndStylesBinding.vue';
 
 const abc = ref('hellow ')
 const data = [
@@ -122,6 +123,7 @@ const count = ref(0);
 
   <ReactivityFundamentals />
   <ComputedProperties />
+  <ClassAndStylesBinding />
   
 
 
