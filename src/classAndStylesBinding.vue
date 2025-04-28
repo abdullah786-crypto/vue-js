@@ -3,7 +3,7 @@
 import { ref, computed } from 'vue';
 
 const showRedText = ref(false);
-const countValue = ref(0); 
+const countValue = ref(0);
 const simpleClassApply = ref('simpleClassApply')
 const dangerText = ref('textDanger')
 const fontSize__14 = ref('fontSize__14');
@@ -20,7 +20,7 @@ const handleTextColor = () => {
 
     <h2 v-bind:class="{ greenText: showRedText, redText: !showRedText }">This is the class binding component render here
     </h2>
-<p>{{ countValue }}</p>
+    <p>{{ countValue }}</p>
     <button @click="handleTextColor"> Red text</button>
     <button @click="handleTextColor"> Green text</button>
 
@@ -31,11 +31,11 @@ const handleTextColor = () => {
     <p
         v-bind:style="{ color: 'white', backgroundColor: 'red', fontSize: '30px', padding: '10px', borderRadius: '10px', textAlign: 'center' }">
         Inline styling</p>
-        <p>{{ showRedText }}</p>
+    <p>{{ showRedText }}</p>
 
     <br />
     <br />
-    <p :class="[fontSize__14, greyBackground, fontWeight__800 ]">Multiple classes</p>
+    <p :class="[fontSize__14, greyBackground, fontWeight__800]">Multiple classes</p>
     <br />
     <br />
 
@@ -72,15 +72,17 @@ const handleTextColor = () => {
     font-weight: 700;
     text-align: align;
 }
-.fontSize__14{
+
+.fontSize__14 {
     font-size: 14px;
 
 }
-.greyBackground{
+
+.greyBackground {
     background-color: grey;
 }
 
-.fontWeight__800{
+.fontWeight__800 {
     font-weight: 800;
 }
 </style>
