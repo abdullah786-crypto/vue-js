@@ -27,23 +27,21 @@ function handleShowTemplete(params) {
 
     <button @click="handleShowTemplete">Show templete</button>
 
-    <template v-if="showTemplete">
+    <!-- <template v-if="showTemplete">
         <div v-bind:class="container1">
             <h2>heading 1 is here</h2>
             <p>Paragreph is here</p>
         </div>
-    </template>
-    <template v-bind:class="container2" v-else>
+    </template> -->
+    <!-- <template v-bind:class="container2" v-else>
         <div v-bind:class="container2">
             <h2>heading 2 is here</h2>
             <p>Paragraph is here</p>
         </div>
-    </template>
-    <!-- <template "> -->
-        <!-- <div> -->
-            <h2 v-show="showTemplete">For the v-show templete</h2>
-        <!-- </div> -->
-    <!-- </template> -->
+    </template> -->
+    <h2>For V show </h2>
+    <h2 v-show="showTemplete">For the v-show templete</h2>
+    <h2 v-if="showTemplete">For the v-if templete</h2>
     <br />
     <br />
     <br />

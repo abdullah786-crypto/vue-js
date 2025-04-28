@@ -5,6 +5,9 @@ import ComputedProperties from './computedProperties.vue';
 import ClassAndStylesBinding from './classAndStylesBinding.vue';
 import CondetionalRendering from './conditionalRendering.vue';
 import ListRendering from './listRendering.vue';
+import EventsHandeling from './eventsHandeling.vue';
+import FormsInputBindings from './formsInputBindings.vue';
+import Watchers from './watchers.vue';
 
 const abc = ref('hellow ')
 const data = [
@@ -128,7 +131,9 @@ const count = ref(0);
   <ClassAndStylesBinding />
   <CondetionalRendering />
   <ListRendering />
-
+  <EventsHandeling />
+  <FormsInputBindings />
+  <Watchers />
 
 </template>
 
