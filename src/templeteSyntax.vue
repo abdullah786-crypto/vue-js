@@ -10,6 +10,7 @@ import FormsInputBindings from './formsInputBindings.vue';
 import Watchers from './watchers.vue';
 import TodoMain from './Todo List/todoMain.vue';
 import Hooks from './hooks.vue';
+import Counter from './Pina State Managment/CounterExample/counter.vue';
 
 const abc = ref('hellow ')
 const data = [
@@ -138,6 +139,9 @@ const count = ref(0);
   <Watchers />
   <TodoMain />
   <Hooks />
+  <!-- Pina State Managment -->
+
+  <Counter />
 
 </template>
 

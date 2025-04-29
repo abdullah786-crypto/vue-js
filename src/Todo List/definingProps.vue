@@ -16,11 +16,11 @@ function onClickButton() {
 <template>
     <div v-bind:class="divStyle">
         <h2 :style="{textAlign: 'center', alignSelf: 'center', marginTop: '10px', marginBottom: '10px'}">Todo Item</h2>
-        <span>Title: {{ props.title }}</span>
+        <span :class="'spanStyle'">Title: {{ props.title }}</span>
         <br />
-        <span>Description: {{ props.description }}</span>
+        <span :class="'spanStyle'">Description: {{ props.description }}</span>
         <br />
-        <span>Is Completed: {{ props.isCompleted }}</span>
+        <span :class="'spanStyle'">Is Completed: {{ props.isCompleted }}</span>
         <br />
         <br />
 
@@ -30,7 +30,7 @@ function onClickButton() {
 </template>
 
 <style>
-span {
+.spanStyle {
     color: white;
     font-size: 20px;
     background-color: grey;

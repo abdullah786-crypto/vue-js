@@ -34,13 +34,12 @@ function onClick() {
     console.log("Clicked from parent");
 }
 
-
 </script>
 
 <template>
     <h1>This is todo Application</h1>
     <h1>Tasks</h1>
-    <input v-model="searchQuery" type="text" placeholder="Enter title" />
+    <input v-bind:class="'searchInput'" v-model="searchQuery" type="text" placeholder="Enter title" />
     <template v-if="todos">
         <div v-for="(todo, index) in filteredTasks">
             <Todos :title="todo.title" :description="todo.description" :is-completed="todo.isCompleted" :onCall="onClick" />
@@ -61,7 +60,7 @@ function onClick() {
 </template>
 
 <style>
-input {
+.searchInput {
     width: 460px;
     height: 30px;
     border-radius: 5px;

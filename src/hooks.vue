@@ -9,6 +9,7 @@ const usersData = ref([])
 const setUserData = (data) => {
     usersData.value = [...data]
 }
+const searchValue = ref('')
 
 onBeforeMount(() => {
     console.log('Data is being fetched before mount calling');
@@ -19,16 +20,12 @@ onMounted(async () => {
     if (response.status === 200) {
         setUserData(await response.json())
         console.log('Data fetched successfully on mounted')
-        computed(() => {
-            console.log('computed is call here');
-
-            return usersData.value.map((item, index) => {
-                return `Id: ${item.id} - ${item.title}`
-            })
-        })
     }
 })
 
+const filteredUsers = computed(() => {
+    return usersData.value.filter((users) => users.name.toLowerCase().includes(searchValue.value.toLowerCase()))
+})
 onBeforeUpdate(() => {
     console.log('On before update is call here before onUpdate hook');
 })
@@ -36,34 +33,37 @@ onBeforeUpdate(() => {
 onUpdated(() => {
     console.log('On update is call here after onMounted');
 })
+
+
 </script>
 
 <template>
 
     <h1>Hooks component called</h1>
 
-    <h1>Users Data</h1>
+    <h1>Users Data</h1> &nbsp;&nbsp; <input v-bind:class="'searchInput'" placeholder="Enter Name"
+        v-model="searchValue" />
     <div>
         <ul v-if="usersData !== null">
-            <li v-for="(users, index) in usersData">
+            <li v-for="(users, index) in filteredUsers">
                 <div v-bind:class="usersClass">
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '10px 0px' }">
                         <p v-bind:class="labelStyle">User Id:</p> &nbsp;&nbsp; <p :style="{ margin: '0px' }">{{ users.id
-                        }}</p>
+                            }}</p>
                     </div>
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'start', margin: '10px 0px' }">
                         <p v-bind:class="labelStyle">Title:</p>&nbsp;&nbsp; <p :style="{ margin: '0px' }">{{ users.name
-                            }}
+                        }}
                         </p>
                     </div>
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'start', margin: '10px 0px' }">
                         <p v-bind:class="labelStyle">Body:</p>&nbsp;&nbsp; <p :style="{ margin: '0px' }">{{
                             users.username
-                            }}</p>
+                        }}</p>
                     </div>
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'start', margin: '10px 0px' }">
                         <p v-bind:class="labelStyle">Email:</p>&nbsp;&nbsp; <p :style="{ margin: '0px' }">{{ users.email
-                        }}</p>
+                            }}</p>
                     </div>
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'start', margin: '10px 0px' }">
                         <p v-bind:class="labelStyle">Street Address:</p>&nbsp;&nbsp; <p :style="{ margin: '0px' }">{{
@@ -75,7 +75,7 @@ onUpdated(() => {
                     </div>
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'start', margin: '10px 0px' }">
                         <p v-bind:class="labelStyle">Phone:</p>&nbsp;&nbsp; <p :style="{ margin: '0px' }">{{ users.phone
-                        }}</p>
+                            }}</p>
                     </div>
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'start', margin: '10px 0px' }">
                         <p v-bind:class="labelStyle">Website:</p>&nbsp;&nbsp; <p :style="{ margin: '0px' }">{{
@@ -129,5 +129,17 @@ onUpdated(() => {
     font-weight: 700;
     font-size: 20px;
     margin: 0px;
+}
+
+.searchInput {
+    width: 460px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    box-shadow: 0 0 5px 4px rgba(243, 240, 240, 0.881);
+    background-color: lavenderblush;
 }
 </style>
