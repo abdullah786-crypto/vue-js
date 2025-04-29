@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue'
 // Single Ref watchers
 const count = ref(85)
-const immediateCounter = ref(0)
+const immediateCounter = ref('')
 const deefWatcher = ref({
     name: 'Ali',
     age: 25,
@@ -32,7 +32,7 @@ watch(immediateCounter, async (newImmediateCounter, oldImmediateCounter) => {
     const response = await fetch('https://fakestoreapi.com/products');
     if (response.ok) {
         const data = await response.json()
-        console.log('Data: ', data);
+        // console.log('Data: ', data);
     }
 }, {
     immediate: true

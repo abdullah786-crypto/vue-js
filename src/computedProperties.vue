@@ -26,8 +26,7 @@ const lastName = ref('Doe')
 const count = ref(0)
 
 const fullName = computed(()=>{
-    console.log(count+1);
-    
+    // console.log(count+1);
     return firstName.value.concat('',' ', lastName.value) 
 })
 </script>
